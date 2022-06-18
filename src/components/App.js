@@ -5,11 +5,11 @@ import SignIn from './SignIn';
 import Main from './Main';
 
 function App() {
-  const [nickName, setNickName] = useState('');
-  if(config.SignInEnabled && nickName === ""){
-    return <SignIn setNickName={setNickName} />;
+  const [name, setName] = useState('');
+  if(config.SignInEnabled && name === ""){
+    return <SignIn setName={setName} />;
   }else{
-    return <Main />
+    return <Main name={name}/>
   }
 }
 

@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn({ setNickName }) {
+export default function SignIn({ setName }) {
   const classes = useStyles();
   const [string, setString] = useState('');
   const [disabled, setDisabled] = useState(false);
@@ -75,7 +75,7 @@ export default function SignIn({ setNickName }) {
               console.log('通過');
               if(e.key === 'Enter') {
                 if(isComposed){
-                  setNickName(string);
+                  setName(string);
                 }
                 e.preventDefault();
               }
@@ -91,7 +91,7 @@ export default function SignIn({ setNickName }) {
             className={classes.submit}
             disabled={disabled}
             onClick={() => {
-              setNickName(string)
+              setName(string);
             }}
           >
             はじめる
