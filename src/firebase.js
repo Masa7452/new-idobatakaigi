@@ -1,5 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getDatabase, ref, push, set } from "firebase/database";
+import { 
+    getDatabase,
+    ref,
+    push,
+    set
+} from "firebase/database";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBKSgk30WBtatrX9aPi58oUXD9cgwlYr6Y",
@@ -15,8 +20,9 @@ const app = initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 const db = getDatabase(app);
-const messageRef = ref(db, 'messages');
+export const messageRef = ref(db, 'messages');
 
+// データ登録
 export const pushMessage =({name, text}) => {
     const newMessageRef = push(messageRef);
     set(newMessageRef, {

@@ -6,14 +6,14 @@ import {
     Avatar
  } from "@material-ui/core"
 
-const MessageItem = () => {
+const MessageItem = ({name, text}) => {
     return (
         <ListItem divider>
             <ListItemAvatar>
             <Avatar>
             </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+            <ListItemText primary={name} secondary={text} />
       </ListItem>
     )
 }

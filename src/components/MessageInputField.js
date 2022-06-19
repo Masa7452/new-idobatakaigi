@@ -23,6 +23,7 @@ const MessageInputField = ({name}) => {
                 </Grid>
                 <Grid item xs={10}>
                     <MessageField
+                        name={name}
                         text={text}
                         setText={setText}
                     />
