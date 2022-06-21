@@ -27,14 +27,17 @@ const MessageList = () => {
         });
     }, [])
 
+    const MessageCount = messages.length;
+
     return (
         <List>
             {
-                messages.map(({key, name, text}) => {
+                messages.map(({key, name, text}, index) => {
                     return <MessageItem
                         key={key}
                         name={name}
                         text={text}
+                        isLastItem={MessageCount === index + 1}
                     />
                 })
             }

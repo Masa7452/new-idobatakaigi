@@ -72,7 +72,6 @@ export default function SignIn({ setName }) {
             name="name"
             onChange={(e) => {setString(e.target.value)}}
             onKeyDown={(e) => {
-              console.log('通過');
               if(e.key === 'Enter') {
                 if(isComposed){
                   setName(string);
