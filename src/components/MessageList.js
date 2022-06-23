@@ -16,7 +16,11 @@ const MessageList = () => {
         );
         onValue(recentMessageRef, (snapshot) => {
             const messages = snapshot.val();
-            if(messages === null) return;
+
+            if(messages === null){
+                setMessages([]);
+                return;
+            }
 
             const newEntries = Object.entries(messages);
             const newMessages = newEntries.map((entry) => {
@@ -35,6 +39,7 @@ const MessageList = () => {
                 messages.map(({key, name, text}, index) => {
                     return <MessageItem
                         key={key}
+                        messageKey={key}
                         name={name}
                         text={text}
                         isLastItem={MessageCount === index + 1}

@@ -7,6 +7,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useNavigate } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -49,6 +50,10 @@ export default function SignIn({ setName }) {
   const [string, setString] = useState('');
   const [disabled, setDisabled] = useState(false);
   const [isComposed, setIsComposd] = useState(false);
+  const navigation = useNavigate();
+  const onMovePage = () => {
+    navigation("/main");
+  }
 
   useEffect(() => {
     setDisabled(string === '');
@@ -91,6 +96,7 @@ export default function SignIn({ setName }) {
             disabled={disabled}
             onClick={() => {
               setName(string);
+              onMovePage();
             }}
           >
             はじめる

@@ -13,6 +13,7 @@ const MessageField = ({inputEl, name, text, setText}) => {
             setText(e.target.value);
         }}
         onKeyDown={(e) => {
+            if (text === "") return;
             if(e.key === "Enter" && !isComposed){
               pushMessage({name, text});
               setText('');

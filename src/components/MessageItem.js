@@ -3,11 +3,20 @@ import {
     ListItem,
     ListItemAvatar,
     ListItemText,
-    Avatar
- } from "@material-ui/core"
+    Avatar,
+    Typography
+ } from "@material-ui/core";
+ import DeleteButton from "./DeleteButton";
+ import { useNavigate } from "react-router-dom";
 
-const MessageItem = ({name, text, isLastItem}) => {
+const MessageItem = ({name, text, messageKey, isLastItem}) => {
     const ref = useRef(null);
+
+    const navigation = useNavigate();
+    const onMoveToDetail = () => {
+        navigation("/main/detail", { name: name, text: text });
+        // navigation("/main/detail");
+    }
 
     useEffect(() => {
         if (isLastItem) {
@@ -16,16 +25,33 @@ const MessageItem = ({name, text, isLastItem}) => {
     }, [isLastItem])
 
     return (
-        <ListItem divider ref={ref}>
+        <ListItem
+            divider
+            ref={ref}
+            button={true}
+            onClick={() => {
+                onMoveToDetail();
+            }}
+        >
             <ListItemAvatar>
-            <Avatar>
-            </Avatar>
+                <Avatar />
             </ListItemAvatar>
             <ListItemText
                 primary={name}
-                secondary={text}
+                secondary={
+                    <Typography
+                        sx={{ display: 'inline' }}
+                        component="span"
+                        variant="body2"
+                        color="textPrimary"
+                    >{text}
+                    </Typography>
+                }
             />
-      </ListItem>
+            <DeleteButton
+                messageKey={messageKey}
+            />
+        </ListItem>
     )
 }
 

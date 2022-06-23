@@ -3,7 +3,9 @@ import {
     getDatabase,
     ref,
     push,
-    set
+    set,
+    remove,
+    child
 } from "firebase/database";
 
 const firebaseConfig = {
@@ -29,4 +31,9 @@ export const pushMessage =({name, text}) => {
         name: name,
         text: text
     });
+}
+
+// データ削除
+export const deleteMessage =(key) => {
+    remove(child(messageRef, key));
 }
