@@ -11,11 +11,10 @@ import {
 
 const MessageItem = ({name, text, messageKey, isLastItem}) => {
     const ref = useRef(null);
-
     const navigation = useNavigate();
+
     const onMoveToDetail = () => {
-        navigation("/main/detail", { name: name, text: text });
-        // navigation("/main/detail");
+        navigation('/main/detail', {state: {name:name, text:text}});
     }
 
     useEffect(() => {
