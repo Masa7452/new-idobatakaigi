@@ -7,7 +7,9 @@ const DeleteButton = ({messageKey}) => {
     return (
         <Button
             variant="outlined"
-            onClick={() => {
+            onClick={(e) => {
+                // 親要素への伝番を止める(詳細画面へ飛ぶリンクを無効にする)
+                e.stopPropagation();
                 deleteMessage(messageKey);
             }}
         >

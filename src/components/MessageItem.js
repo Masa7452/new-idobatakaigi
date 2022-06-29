@@ -43,7 +43,8 @@ const MessageItem = ({name, text, messageKey, isLastItem}) => {
                         component="span"
                         variant="body2"
                         color="textPrimary"
-                    >{text}
+                    >
+                    {text}
                     </Typography>
                 }
             />
