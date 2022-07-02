@@ -5,6 +5,7 @@ import {
     push,
     set,
     remove,
+    update,
     child
 } from "firebase/database";
 
@@ -34,6 +35,12 @@ export const pushMessage =({name, text}) => {
 }
 
 // データ削除
-export const deleteMessage =(key) => {
+export const deleteMessage = (key) => {
     remove(child(messageRef, key));
+}
+
+export const updateMessage = (messageKey, inputText) => {
+    update(child(messageRef, messageKey), {
+        text: inputText
+    });
 }

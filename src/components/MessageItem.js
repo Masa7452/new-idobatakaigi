@@ -14,7 +14,7 @@ const MessageItem = ({name, text, messageKey, isLastItem}) => {
     const navigation = useNavigate();
 
     const onMoveToDetail = () => {
-        navigation('/main/detail', {state: {name:name, text:text}});
+        navigation('/main/detail', {state: {name:name, text:text, messageKey: messageKey}});
     }
 
     useEffect(() => {
