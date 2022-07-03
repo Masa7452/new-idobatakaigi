@@ -15,6 +15,10 @@ const MessageDetailEditButton = ({disabled, setDisabled, inputText, messageKey})
                 setEditButtonName('更新');
               }else{
                 setEditButtonName('編集');
+                if(inputText === ''){
+                  alert('メッセージを入力してください。');
+                  return;
+                }
                 updateMessage(messageKey, inputText);
               }
             }}

@@ -30,7 +30,7 @@ export default function MessageDetail() {
           <TextareaAutosize
             maxRows={4}
             aria-label="maximum height"
-            placeholder="Maximum 4 rows"
+            placeholder="入力してください"
             defaultValue={text}
             style={{ width: 200 }}
             disabled={disabled}
